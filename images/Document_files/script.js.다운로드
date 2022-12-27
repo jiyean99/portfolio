@@ -1,0 +1,29 @@
+/* skillbar 스크롤 높이에 맞춘 행동 */
+function skillbar() {
+    let hei = $(document).scrollTop();
+
+    // console.log(hei);
+
+    if (hei > 1730) {
+        $(".skill-grahp>li>p>span").addClass("stack1");
+        $(".skill-grahp>li:nth-child(3)>p>span,.skill-grahp>li:nth-child(4)>p>span,.skill-grahp>li:nth-child(6)>p>span").addClass("stack2");
+        $(".skill-grahp>li:nth-child(5)>p>span").addClass("stack3");
+    }
+};
+$(window).scroll(function () {
+    skillbar();
+});
+
+/* 가로스크롤 */
+$(window).scroll(function () {
+    const scr = $(document).scrollTop();
+    // let all_h = $(document).height();
+    let des_h = $("#design-project").offset().top;
+
+    let offset = scr - des_h
+
+
+    if (scr > des_h) {
+        $("#design-project .container").css({ left: -offset });
+    }
+});
